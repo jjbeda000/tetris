@@ -1,1 +1,1 @@
-# tetris/repo
+# tetris-repo
