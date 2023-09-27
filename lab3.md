@@ -1,29 +1,38 @@
-# My Project Plan (Level 1 Heading)
-***Note***: This document is written merely as an illustrative example, and does not provide any working guide to an actual project.
+# Markdown 표 생성 함수
+def create_markdown_table(data):
+    # 표 머릿글 생성
+    table = "| 명령어 | 설명 |\n| ------- | ---- |\n"
 
-### Proposal (Level 3 Heading)
----
-I am planning to make a computer vision software that detects objects in images.  
-In order to build it, I will use opencv, deep learning libraries, such as [TensorFlow](https://www.tensorflow.org/) or [PyTorch](https://pytorch.org/), and other open source softwares.
+    # 데이터 행 추가
+    for row in data:
+        table += f"| {row[0]} | {row[1]} |\n"
 
-For example, the objects in the following images were detected using [mmdetection](https://github.com/open-mmlab/mmdetection):
+    return table
 
-![image](https://user-images.githubusercontent.com/12907710/137271636-56ba1cd2-b110-4812-8221-b4c120320aa9.png)
+# 명령어와 설명 데이터
+command_data = [
+    ("pwd", "현재 디렉토리의 경로를 표시합니다."),
+    ("cd", "디렉토리를 변경합니다."),
+    ("ls", "파일과 디렉토리 목록을 표시합니다."),
+    ("ls -l", "자세한 정보를 포함한 목록을 표시합니다."),
+    ("ls -lh", "자세한 정보와 크기 단위를 포함한 목록을 표시합니다."),
+    ("ls /bin", "/bin 디렉토리의 파일 목록을 표시합니다."),
+    ("ls -1", "자세한 정보를 포함한 목록을 표시합니다. (한 줄에 하나씩)"),
+    ("ls -1 /etc /bin", "/etc와 /bin 디렉토리의 파일 목록을 표시합니다. (한 줄에 하나씩)"),
+    ("ls -la ..", "상위 디렉토리의 모든 파일을 표시합니다. (숨겨진 파일 포함)"),
+    ("Tab 키 누름", "자동완성 기능을 사용합니다."),
+    ("↑ 화살표 키 누름", "이전에 사용한 명령어를 찾아서 표시합니다."),
+    ("clear", "셸 화면을 지웁니다."),
+    ("cp", "파일과 디렉토리를 복사합니다."),
+    ("mv", "파일과 디렉토리를 이동하거나 이름을 변경합니다."),
+    ("rm", "파일과 디렉토리를 영구적으로 삭제합니다."),
+    ("mkdir", "새로운 디렉토리를 생성합니다."),
+    ("help", "도움말을 표시합니다."),
+    ("man", "명령어의 매뉴얼 페이지를 표시합니다."),
+    ("exit", "셸을 종료합니다."),
+]
 
----
-### Dependencies (Level 3 Heading)
- - python
- - opencv-python
- - tensorflow
- - openmmlab
- - package manager
+# Markdown 표 생성 및 출력
+markdown_table = create_markdown_table(command_data)
+print(markdown_table)
 
-### Installation
-In a bash terminal, run the following commands (*Do NOT actually run these commands in your computer*):
-```sh
-$ sudo apt update
-$ conda create -n cv_detection
-$ conda activate cv_detection
-$ python --version
-$ python example.py
-```
